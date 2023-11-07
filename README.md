@@ -1,40 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Biconomy + Viem Example
+
+This repository contains a Next.js project integrated with the Biconomy SDK and Viem. This demonstrates how to use Viem to help sign and send userOps(transactions) using Biconomy. 
+
+## Prerequisites
+
+Before running the project, you need to have Node.js and Yarn installed on your machine. Yarn is used as the primary package manager in this project, but you are free to use npm or other package managers if you prefer.
 
 ## Getting Started
 
-First, run the development server:
+To get the repository up and running on your local machine, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Install Dependencies**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   Navigate to the root directory of the project in your terminal and run the following command to install the necessary dependencies:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   yarn install
+   ```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+2. **Biconomy Dashboard Configuration**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+   You will need to update specific lines in the project to integrate with your Biconomy setup:
+   
+   In the `index.tsx` file:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   - On line 24, replace the placeholder with your Paymaster URL.
+   - On line 32, replace the placeholder with your Bundler URL.
+
+   Both URLs can be obtained from your Biconomy dashboard: https://dashboard.biconomy.io/
+
+3. **Smart Contract Whitelisting**
+
+   Ensure that the NFT contract address `0x0a7755bDfb86109D9D403005741b415765EAf1Bc`, which is deployed on the Base Goerli testnet, is whitelisted in your Biconomy dashboard.
+
+4. **Function Authorization**
+
+   Within the Biconomy dashboard, authorize the `safeMint` function for the whitelisted contract. This is necessary to enable the contract to interact seamlessly with Biconomy's services.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To understand more about configuring and utilizing the Biconomy dashboard, please refer to the official documentation:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[Biconomy Dashboard Documentation](https://docs.biconomy.io/category/biconomy-dashboard)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Running the Project
 
-## Deploy on Vercel
+Once you have completed the setup:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Run the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  ```bash
+  yarn dev
+  ```
+
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
